@@ -8,7 +8,6 @@
     <style>
         /* --- 全域變數設定 --- */
         :root {
-            /* 醫護專業綠 (Teal) */
             --primary-color: #006d77; 
             --secondary-color: #83c5be;
             --accent-color: #ffddd2;
@@ -17,12 +16,12 @@
             --bg-body: #edf6f9;
             --white: #ffffff;
 
-            /* 標籤顏色 */
             --tag-hot: #e76f51;
             --tag-code: #2a9d8f;
             --tag-read: #e9c46a;
             --tag-agent: #264653;
             --tag-gray: #95a5a6;
+            --tag-blue: #3498db; /* 新增藍色標籤 */
         }
 
         /* --- 基礎排版 --- */
@@ -34,7 +33,6 @@
         .top-bar { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; }
         
-        /* Logo 區域 */
         .logo-area { display: flex; align-items: center; gap: 15px; font-size: 1.3rem; font-weight: bold; color: var(--primary-color); cursor: pointer; }
         .logo-area:hover { opacity: 0.8; }
         .logo-area img { height: 50px; width: auto; } 
@@ -42,25 +40,24 @@
         .nav-links a { color: var(--text-main); margin-left: 20px; font-weight: 500; font-size: 1rem; }
         .nav-links a:hover { color: var(--primary-color); }
 
-        /* --- Hero Banner (新版圖片模式) --- */
+        /* --- Hero Banner --- */
         .hero-banner-container {
             width: 100%;
-            max-width: 1200px; /* 限制最大寬度 */
-            margin: 20px auto 40px auto; /* 上下留白，置中 */
-            border-radius: 12px; /* 圓角 */
-            overflow: hidden; /* 確保圓角生效 */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* 增加立體感 */
+            max-width: 1200px; 
+            margin: 20px auto 40px auto;
+            border-radius: 12px;
+            overflow: hidden; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
         }
         .hero-banner-img {
             width: 100%;
-            height: auto; /* 高度自動，保持比例 */
-            display: block; /* 移除圖片下方的多餘空白 */
+            height: auto; 
+            display: block; 
         }
 
         /* --- 版面配置 --- */
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: 250px 1fr; gap: 40px; }
         
-        /* 側邊欄 */
         .sidebar-box { background: var(--white); padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px; }
         .sidebar-box h3 { border-bottom: 2px solid var(--secondary-color); padding-bottom: 10px; margin-top: 0; color: var(--primary-color); font-size: 1.1rem; }
         .menu-list li { margin-bottom: 10px; border-bottom: 1px dashed #eee; padding-bottom: 5px; }
@@ -68,11 +65,10 @@
         .menu-list a { color: var(--text-light); display: flex; align-items: center; gap: 8px; }
         .menu-list a:hover { color: var(--primary-color); transform: translateX(5px); }
 
-        /* 主要內容區 */
         section { margin-bottom: 60px; scroll-margin-top: 100px; }
         .section-title { display: flex; align-items: center; gap: 10px; font-size: 1.8rem; color: var(--primary-color); margin-bottom: 20px; border-left: 5px solid var(--secondary-color); padding-left: 15px; }
         
-        /* 卡片樣式 (共用) */
+        /* 基礎知識卡片 */
         .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .feature-card { background: var(--white); padding: 25px; border-radius: 12px; border: 1px solid #eee; transition: 0.3s; position: relative; overflow: hidden; }
         .feature-card::before { content: ""; position: absolute; top: 0; left: 0; width: 5px; height: 100%; background: var(--secondary-color); }
@@ -80,32 +76,97 @@
         .feature-card h4 { margin-top: 0; font-size: 1.2rem; color: #333; }
         .feature-card i { color: var(--secondary-color); font-size: 2rem; margin-bottom: 15px; display: block; }
 
-        /* --- 資源卡片樣式 --- */
-        .resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .res-card { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.08); transition: 0.3s; display: flex; flex-direction: column; border-top: 4px solid transparent; }
+        /* --- 資源卡片樣式 (工具庫 & 自學平台) --- */
+        /* 確保兩個區塊都套用相同的 4 欄格線設定 */
+        .resource-grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); /* 強制 4 欄 */
+            gap: 20px; 
+        }
+        
+        .res-card { 
+            background: var(--white); 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08); 
+            transition: 0.3s; 
+            display: flex; 
+            flex-direction: column; 
+            border-top: 4px solid transparent; 
+        }
         .res-card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(0,0,0,0.15); border-top-color: var(--secondary-color); }
         
-        /* 卡片內容佈局 */
-        .res-header { padding: 20px 20px 10px 20px; display: flex; justify-content: space-between; align-items: flex-start; }
-        .res-title-group { display: flex; align-items: center; gap: 12px; }
-        .res-logo { width: 40px; height: 40px; border-radius: 8px; object-fit: contain; background: #fff; border: 1px solid #eee; padding: 2px; }
-        .res-title { font-size: 1.3rem; font-weight: bold; color: #333; }
-        .res-body { padding: 0 20px 20px 20px; flex-grow: 1; }
-        .res-body p { color: #666; font-size: 0.95rem; margin-top: 10px; line-height: 1.5; }
+        /* --- 修正處：標題區域樣式調整 --- */
+        .res-header { 
+            padding: 20px 20px 10px 20px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; /* 修正：改為垂直置中，避免高度落差造成裁切 */
+        }
+        .res-title-group { 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            flex: 1; 
+            min-width: 0; 
+        }
+        .res-logo { 
+            width: 36px; height: 36px; 
+            border-radius: 8px; 
+            object-fit: contain; 
+            background: #fff; 
+            border: 1px solid #eee; 
+            padding: 2px; 
+            flex-shrink: 0;
+        }
+        .res-title { 
+            font-size: 1.1rem; 
+            font-weight: bold; 
+            color: #333; 
+            line-height: 1.3;
+            overflow: visible; 
+            white-space: normal;
+        }
+        .res-body { 
+            padding: 0 20px 25px 20px; 
+            flex-grow: 1; 
+        }
+        .res-body p { 
+            color: #666; 
+            font-size: 0.9rem; 
+            margin-top: 8px; 
+            line-height: 1.6; 
+        }
         .res-footer { padding: 15px 20px; background: #f8f9fa; border-top: 1px solid #eee; text-align: right; }
         
-        /* 按鈕與標籤 */
-        .btn-go { background: var(--primary-color); color: white; padding: 8px 20px; border-radius: 50px; font-weight: bold; font-size: 0.9rem; display: inline-block; }
+        .btn-go { background: var(--primary-color); color: white; padding: 6px 15px; border-radius: 50px; font-weight: bold; font-size: 0.85rem; display: inline-block; }
         .btn-go:hover { background: #004e57; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
         
-        .tag { font-size: 0.75rem; padding: 4px 10px; border-radius: 12px; color: white; font-weight: bold; white-space: nowrap; }
+        /* --- 修正處：標籤樣式調整 --- */
+        .tag { 
+            font-size: 0.75rem; 
+            padding: 4px 8px; 
+            border-radius: 12px; 
+            color: white; 
+            font-weight: bold; 
+            white-space: nowrap; 
+            flex-shrink: 0; 
+            margin-left: 5px;
+            line-height: 1.5; /* 修正：增加行高，防止文字頂部或底部被裁切 */
+        }
         .tag-hot { background-color: var(--tag-hot); }
         .tag-code { background-color: var(--tag-code); }
         .tag-read { background-color: var(--tag-read); }
         .tag-gray { background-color: var(--tag-gray); }
+        .tag-blue { background-color: var(--tag-blue); }
+        .tag-agent { background-color: var(--tag-agent); }
 
-        /* 影片封面圖模式 */
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; }
+        /* --- 影片卡片 --- */
+        .video-grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 20px; 
+        }
         .video-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
         .video-thumbnail-container { 
             position: relative; 
@@ -119,70 +180,55 @@
         .video-thumbnail-container:hover img { opacity: 0.7; }
         .play-button-overlay {
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            font-size: 4rem; color: rgba(255,255,255,0.8); z-index: 2; transition: 0.3s;
+            font-size: 3rem; color: rgba(255,255,255,0.8); z-index: 2; transition: 0.3s;
         }
         .video-thumbnail-container:hover .play-button-overlay { color: var(--secondary-color); transform: translate(-50%, -50%) scale(1.1); }
         .video-thumbnail-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 5; }
-        .video-title { padding: 15px; font-weight: bold; font-size: 1.1rem; color: #333; border-top: 1px solid #eee; }
+        .video-title { padding: 12px; font-weight: bold; font-size: 0.95rem; color: #333; border-top: 1px solid #eee; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; height: 2.8em; }
 
-        /* --- 查看更多按鈕區 (共用) --- */
-        .more-container { text-align: center; margin-top: 30px; }
+        /* --- 查看更多按鈕區 --- */
+        .more-container { 
+            text-align: right; 
+            margin-top: 20px; 
+            padding-right: 10px; 
+        }
         .btn-more {
             display: inline-block;
             background-color: var(--white);
             color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-            padding: 10px 30px;
+            border: 1px solid var(--primary-color); 
+            padding: 5px 15px; 
             border-radius: 50px;
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 0.85rem; 
             transition: 0.3s;
         }
         .btn-more:hover {
             background-color: var(--primary-color);
             color: var(--white);
-            box-shadow: 0 5px 15px rgba(0,109,119,0.3);
+            box-shadow: 0 3px 10px rgba(0,109,119,0.2);
         }
 
         .alert-box { background: #fff3cd; border: 1px solid #ffeeba; color: #856404; padding: 20px; border-radius: 8px; display: flex; gap: 20px; align-items: start; }
         .alert-box i { font-size: 2rem; }
 
         /* 頁尾樣式 */
-        footer { 
-            background: #2d3436; 
-            color: #ffffff; 
-            padding: 40px 0; 
-            margin-top: 60px; 
-            text-align: center; 
-        }
-        .footer-content { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 0 20px; 
-            text-align: center; 
-            line-height: 1.8; 
-        }
-        .footer-content p { 
-            margin: 5px 0; 
-            color: #ffffff; 
-        }
-        .footer-content a { 
-            color: #ffffff; 
-            text-decoration: none; 
-            border-bottom: 1px dashed #ffffff; 
-        }
-        .footer-content a:hover { 
-            color: var(--secondary-color); 
-            border-bottom-style: solid; 
-        }
+        footer { background: #2d3436; color: #ffffff; padding: 40px 0; margin-top: 60px; text-align: center; }
+        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; text-align: center; line-height: 1.8; }
+        .footer-content p { margin: 5px 0; color: #ffffff; }
+        .footer-content a { color: #ffffff; text-decoration: none; border-bottom: 1px dashed #ffffff; }
+        .footer-content a:hover { color: var(--secondary-color); border-bottom-style: solid; }
 
         /* RWD */
+        @media (max-width: 1024px) {
+            .video-grid, .resource-grid { grid-template-columns: repeat(2, 1fr); }
+        }
         @media (max-width: 768px) {
             .container { grid-template-columns: 1fr; }
-            .sidebar-box { display: none; }
-            .nav-links { display: none; }
+            .sidebar-box, .nav-links { display: none; }
             .hero-banner-container { margin-top: 0; border-radius: 0; }
-            .video-grid { grid-template-columns: 1fr; }
+            .video-grid, .resource-grid { grid-template-columns: 1fr; }
+            .more-container { text-align: center; } 
         }
     </style>
 </head>
@@ -228,9 +274,9 @@
             <div class="sidebar-box">
                 <h3><i class="fa-solid fa-bullhorn"></i> 最新公告</h3>
                 <ul class="menu-list">
+                    <li><small style="color:#888">2026/01/22</small><br>更新自學平台與工具</li>
+                    <li><small style="color:#888">2026/01/22</small><br>更新 2 部 Gemini 教學影片</li>
                     <li><small style="color:#888">2026/01/07</small><br>新增 10 本 AI 熱門電子書</li>
-                    <li><small style="color:#888">2026/01/07</small><br>更新 AI 基礎知識內容</li>
-                    <li><small style="color:#888">2026/01/06</small><br>新增影音專區與更多教學</li>
                     <li><small style="color:#888">2026/01/01</small><br>AI 專區正式上線！</li>
                 </ul>
             </div>
@@ -267,15 +313,17 @@
             <section id="learning">
                 <h2 class="section-title"><i class="fa-solid fa-chalkboard-user"></i> 優質自學平台</h2>
                 <div class="resource-grid">
+                    
                     <div class="res-card">
                         <div class="res-header">
                             <div class="res-title-group">
+                                <img src="https://www.google.com/s2/favicons?domain=cloud.google.com&sz=128" class="res-logo" alt="Logo">
                                 <div class="res-title">Google Cloud</div>
                             </div>
                             <span class="tag tag-hot">入門必修</span>
                         </div>
                         <div class="res-body">
-                            <p>Google 官方提供的免費課程，從最基礎的大型語言模型原理解說起，含中文繁體字幕。</p>
+                            <p>Google 官方提供的免費課程，從最基礎的大型語言模型原理解說起。</p>
                         </div>
                         <div class="res-footer">
                             <a href="https://www.cloudskillsboost.google/paths/118?locale=zh_TW" target="_blank" class="btn-go">開始上課 <i class="fa-solid fa-arrow-right"></i></a>
@@ -285,19 +333,52 @@
                     <div class="res-card">
                         <div class="res-header">
                             <div class="res-title-group">
+                                <img src="https://www.google.com/s2/favicons?domain=coursera.org&sz=128" class="res-logo" alt="Logo">
                                 <div class="res-title">Coursera</div>
                             </div>
                             <span class="tag tag-read">通識好課</span>
                         </div>
                         <div class="res-body">
-                            <p>由 AI 教父 Andrew Ng 開設，不需工程背景也能聽懂 AI 對社會與產業的影響。</p>
+                            <p>由 AI 教父 Andrew Ng 開設，不需工程背景也能聽懂 AI 的影響。</p>
                         </div>
                         <div class="res-footer">
                             <a href="https://www.coursera.org/learn/ai-for-everyone" target="_blank" class="btn-go">開始上課 <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
+
+                    <div class="res-card">
+                        <div class="res-header">
+                            <div class="res-title-group">
+                                <img src="https://www.google.com/s2/favicons?domain=moocs.moe.edu.tw&sz=128" class="res-logo" alt="Logo">
+                                <div class="res-title">Taiwan MOOCs</div>
+                            </div>
+                            <span class="tag tag-blue">教育部</span>
+                        </div>
+                        <div class="res-body">
+                            <p>教育部磨課師平台，匯集台灣各大專院校的優質線上課程。</p>
+                        </div>
+                        <div class="res-footer">
+                            <a href="https://moocs.moe.edu.tw/moocs/#/home" target="_blank" class="btn-go">開始上課 <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="res-card">
+                        <div class="res-header">
+                            <div class="res-title-group">
+                                <img src="https://www.google.com/s2/favicons?domain=youtube.com&sz=128" class="res-logo" alt="Logo">
+                                <div class="res-title">全民 AI 通識課</div>
+                            </div>
+                            <span class="tag tag-blue">數位部</span>
+                        </div>
+                        <div class="res-body">
+                            <p>數位發展部推出的 AI 素養課程，適合所有想要了解人工智慧的民眾。</p>
+                        </div>
+                        <div class="res-footer">
+                            <a href="https://www.youtube.com/playlist?list=PLTLOS370gPgZY7wOboV1E1eF9EIC9rnEa" target="_blank" class="btn-go">開始上課 <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
                 </div>
-                
                 <div class="more-container">
                     <a href="courses.html" class="btn-more">
                         查看更多自學資源 <i class="fa-solid fa-arrow-right"></i>
@@ -310,7 +391,7 @@
                 <div class="video-grid">
                     <div class="video-card">
                         <div class="video-thumbnail-container" onclick="loadVideo(this, 'DVeJGQCycjI')">
-                            <img src="https://img.youtube.com/vi/DVeJGQCycjI/maxresdefault.jpg" alt="Gemini 3.0 & ChatGPT 5.1">
+                            <img src="https://img.youtube.com/vi/DVeJGQCycjI/maxresdefault.jpg" alt="Gemini 3.0">
                             <div class="play-button-overlay"><i class="fa-regular fa-circle-play"></i></div>
                         </div>
                         <div class="video-title">
@@ -319,11 +400,29 @@
                     </div>
                     <div class="video-card">
                         <div class="video-thumbnail-container" onclick="loadVideo(this, 'JmZ7bMdKSjM')">
-                            <img src="https://img.youtube.com/vi/JmZ7bMdKSjM/maxresdefault.jpg" alt="Google AI 最強更新">
+                            <img src="https://img.youtube.com/vi/JmZ7bMdKSjM/maxresdefault.jpg" alt="Google AI">
                             <div class="play-button-overlay"><i class="fa-regular fa-circle-play"></i></div>
                         </div>
                         <div class="video-title">
                             <i class="fa-brands fa-youtube" style="color:red;"></i> 【2026最新】地表最強人工智能 Google AI 炸裂更新
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-thumbnail-container" onclick="loadVideo(this, 'J0FPGRrvP0c')">
+                            <img src="https://img.youtube.com/vi/J0FPGRrvP0c/maxresdefault.jpg" alt="90% 都用錯 Gemini">
+                            <div class="play-button-overlay"><i class="fa-regular fa-circle-play"></i></div>
+                        </div>
+                        <div class="video-title">
+                            <i class="fa-brands fa-youtube" style="color:red;"></i> 90% 都用錯 Gemini！開啟 Gems 打造專屬 AI 員工
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-thumbnail-container" onclick="loadVideo(this, 'QtlZJBpVUhQ')">
+                            <img src="https://img.youtube.com/vi/QtlZJBpVUhQ/maxresdefault.jpg" alt="Gemini 技巧">
+                            <div class="play-button-overlay"><i class="fa-regular fa-circle-play"></i></div>
+                        </div>
+                        <div class="video-title">
+                            <i class="fa-brands fa-youtube" style="color:red;"></i> 一定要學會的 Gemini 十個生活小技巧：旅遊、翻譯、防詐騙
                         </div>
                     </div>
                 </div>
@@ -347,7 +446,7 @@
                             <span class="tag tag-read">學術推薦</span>
                         </div>
                         <div class="res-body">
-                            <p>附帶引用的 AI 搜尋引擎。它會閱讀多個網頁後，整理出精準答案並標註來源。</p>
+                            <p>附帶引用的 AI 搜尋引擎。整理出精準答案並標註來源。</p>
                         </div>
                         <div class="res-footer">
                             <a href="https://www.perplexity.ai/" target="_blank" class="btn-go">前往使用 <i class="fa-solid fa-arrow-right"></i></a>
@@ -363,7 +462,7 @@
                             <span class="tag tag-gray">文書助手</span>
                         </div>
                         <div class="res-body">
-                            <p>OpenAI 開發的經典工具。擁有強大的語意理解能力，適合潤飾英文摘要與發想大綱。</p>
+                            <p>OpenAI 開發的經典工具。擁有強大的語意理解能力。</p>
                         </div>
                         <div class="res-footer">
                             <a href="https://chat.openai.com/" target="_blank" class="btn-go">前往使用 <i class="fa-solid fa-arrow-right"></i></a>
@@ -379,7 +478,7 @@
                             <span class="tag tag-hot">Google最強</span>
                         </div>
                         <div class="res-body">
-                            <p>Google 的多模態 AI。擅長處理長文本分析與即時聯網搜尋，與 Google 文件整合極佳。</p>
+                            <p>Google 的多模態 AI。擅長處理長文本分析與即時聯網搜尋。</p>
                         </div>
                         <div class="res-footer">
                             <a href="https://gemini.google.com/" target="_blank" class="btn-go">前往使用 <i class="fa-solid fa-arrow-right"></i></a>
@@ -395,7 +494,7 @@
                             <span class="tag tag-code">程式推理</span>
                         </div>
                         <div class="res-body">
-                            <p>近期爆紅的開源模型霸主。在程式碼撰寫與數學邏輯推理上表現驚人，CP 值極高。</p>
+                            <p>爆紅的開源模型霸主。程式撰寫與數學邏輯推理表現驚人。</p>
                         </div>
                         <div class="res-footer">
                             <a href="https://chat.deepseek.com/" target="_blank" class="btn-go">前往使用 <i class="fa-solid fa-arrow-right"></i></a>
@@ -403,7 +502,6 @@
                     </div>
 
                 </div>
-                
                 <div class="more-container">
                     <a href="tools.html" class="btn-more">
                         查看完整工具庫 <i class="fa-solid fa-arrow-right"></i>
