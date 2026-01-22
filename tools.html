@@ -15,10 +15,12 @@
             --white: #ffffff;
             
             /* 標籤顏色 */
-            --tag-hot: #e76f51;   /* 熱門 */
-            --tag-code: #2a9d8f;  /* 程式 */
-            --tag-read: #e9c46a;  /* 閱讀 */
-            --tag-agent: #264653; /* 代理人 */
+            --tag-hot: #e76f51;   /* 熱門/Google */
+            --tag-code: #2a9d8f;  /* 程式/開源 */
+            --tag-read: #e9c46a;  /* 閱讀/學術 */
+            --tag-agent: #264653; /* 代理人/中文 */
+            --tag-design: #d62828; /* 設計繪圖 */
+            --tag-gray: #95a5a6;  /* 通用 */
         }
 
         body { margin: 0; font-family: "Microsoft JhengHei", sans-serif; background-color: var(--bg-body); color: var(--text-main); line-height: 1.6; }
@@ -78,7 +80,8 @@
         .tag-code { background-color: var(--tag-code); }
         .tag-read { background-color: var(--tag-read); }
         .tag-agent { background-color: var(--tag-agent); }
-        .tag-gray { background-color: #95a5a6; }
+        .tag-design { background-color: var(--tag-design); } /* 新增設計類顏色 */
+        .tag-gray { background-color: var(--tag-gray); }
 
         /* 頁尾更新 */
         footer { background: #2d3436; color: #dfe6e9; padding: 40px 0; margin-top: auto; }
@@ -102,6 +105,9 @@
             </a>
             <div class="nav-links">
                 <a href="index.html">回首頁</a>
+                <a href="basics.html">基礎知識</a>
+                <a href="ebooks.html">電子書</a>
+                <a href="courses.html">自學資源</a>
                 <a href="videos.html">教學影片</a>
                 <a href="#" class="active">工具庫</a>
             </div>
@@ -129,6 +135,22 @@
                 </div>
                 <div class="res-footer">
                     <a href="https://gemini.google.com/" target="_blank" class="btn-go">前往使用 <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="res-card">
+                <div class="res-header">
+                    <div class="res-title-group">
+                        <img src="https://www.google.com/s2/favicons?domain=claude.ai&sz=128" class="res-logo" alt="Claude Logo">
+                        <div class="res-title">Claude</div>
+                    </div>
+                    <span class="tag tag-read">長文分析</span>
+                </div>
+                <div class="res-body">
+                    <p>由 Anthropic 開發，以強大的長文本處理能力（高達 200k tokens）和寫作風格自然著稱，非常適合分析論文或撰寫長篇報告。</p>
+                </div>
+                <div class="res-footer">
+                    <a href="https://claude.ai/new" target="_blank" class="btn-go">前往使用 <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
 
@@ -167,16 +189,48 @@
             <div class="res-card">
                 <div class="res-header">
                     <div class="res-title-group">
-                        <img src="https://www.google.com/s2/favicons?domain=x.ai&sz=128" class="res-logo" alt="Grok Logo">
-                        <div class="res-title">Grok</div>
+                        <img src="https://www.google.com/s2/favicons?domain=doubao.com&sz=128" class="res-logo" alt="Doubao Logo">
+                        <div class="res-title">豆包 (Doubao)</div>
                     </div>
-                    <span class="tag tag-hot">即時資訊</span>
+                    <span class="tag tag-agent">中文創作</span>
                 </div>
                 <div class="res-body">
-                    <p>馬斯克 (Elon Musk) 旗下 xAI 開發的模型。最大特色是能直接存取 X (Twitter) 的即時數據，風格幽默犀利，適合獲取最新網路趨勢。</p>
+                    <p>字節跳動推出的 AI 助手，對於中文語境的理解與創作能力極佳，擁有豐富的智能體 (Agent) 應用，適合社群文案與生活對話。</p>
                 </div>
                 <div class="res-footer">
-                    <a href="https://x.ai/" target="_blank" class="btn-go">前往使用 <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="https://www.doubao.com/chat/" target="_blank" class="btn-go">前往使用 <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="res-card">
+                <div class="res-header">
+                    <div class="res-title-group">
+                        <img src="https://www.google.com/s2/favicons?domain=meta.ai&sz=128" class="res-logo" alt="Meta AI Logo">
+                        <div class="res-title">Meta AI</div>
+                    </div>
+                    <span class="tag tag-code">開源模型</span>
+                </div>
+                <div class="res-body">
+                    <p>由 Meta (Facebook) 開發，基於強大的 Llama 3 模型。它能快速生成高品質圖片，並整合在 FB、IG 等社交平台中，免費且強大。</p>
+                </div>
+                <div class="res-footer">
+                    <a href="https://www.meta.ai/" target="_blank" class="btn-go">前往使用 <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="res-card">
+                <div class="res-header">
+                    <div class="res-title-group">
+                        <img src="https://www.google.com/s2/favicons?domain=canva.com&sz=128" class="res-logo" alt="Canva Logo">
+                        <div class="res-title">Canva</div>
+                    </div>
+                    <span class="tag tag-design">設計繪圖</span>
+                </div>
+                <div class="res-body">
+                    <p>全球最受歡迎的線上設計工具。現已內建大量 AI 功能（Magic Studio），可一鍵去背、生成圖片、自動排版，讓設計變簡單。</p>
+                </div>
+                <div class="res-footer">
+                    <a href="https://www.canva.com/" target="_blank" class="btn-go">前往使用 <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
 
@@ -225,6 +279,22 @@
                 </div>
                 <div class="res-footer">
                     <a href="https://www.perplexity.ai/" target="_blank" class="btn-go">前往使用 <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="res-card">
+                <div class="res-header">
+                    <div class="res-title-group">
+                        <img src="https://www.google.com/s2/favicons?domain=x.ai&sz=128" class="res-logo" alt="Grok Logo">
+                        <div class="res-title">Grok</div>
+                    </div>
+                    <span class="tag tag-hot">即時資訊</span>
+                </div>
+                <div class="res-body">
+                    <p>馬斯克旗下 xAI 開發的模型。能直接存取 X (Twitter) 的即時數據，風格幽默犀利，適合獲取最新網路趨勢。</p>
+                </div>
+                <div class="res-footer">
+                    <a href="https://x.ai/" target="_blank" class="btn-go">前往使用 <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
 
