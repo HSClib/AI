@@ -24,7 +24,10 @@
         .logo-area { display: flex; align-items: center; gap: 15px; font-size: 1.3rem; font-weight: bold; color: var(--primary-color); cursor: pointer; }
         .logo-area:hover { opacity: 0.8; }
         .logo-area img { height: 50px; width: auto; } 
-        .nav-links a { color: var(--text-main); margin-left: 20px; font-weight: 500; }
+
+        /* 導覽列連結樣式優化 */
+        .nav-links { display: flex; align-items: center; }
+        .nav-links a { color: var(--text-main); margin-left: 15px; font-weight: 500; font-size: 0.9rem; }
         .nav-links a:hover, .nav-links a.active { color: var(--primary-color); }
 
         /* --- Hero Banner (CSS 純代碼樣式 - 仿照上傳圖片風格) --- */
@@ -102,21 +105,22 @@
         .video-desc { font-size: 0.85rem; color: #666; }
 
         /* 頁尾 */
-        footer { background: #2d3436; color: #dfe6e9; padding: 40px 0; margin-top: auto; }
-        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; text-align: center; line-height: 1.8; }
-        .footer-content p { margin: 5px 0; }
-        .footer-content a { color: var(--secondary-color); text-decoration: none; border-bottom: 1px dashed var(--secondary-color); }
-        .footer-content a:hover { color: var(--white); border-bottom-style: solid; }
+        footer { background: #2d3436; color: #ffffff; padding: 40px 0; margin-top: 60px; text-align: center; }
+        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; line-height: 1.8; }
+        .footer-content p { margin: 5px 0; color: #ffffff; }
+        .footer-content a { color: #ffffff; text-decoration: none; border-bottom: 1px dashed #ffffff; }
 
         /* RWD 響應式調整 */
         @media (max-width: 1024px) {
             .video-grid { grid-template-columns: repeat(2, 1fr); }
+            .nav-links a { margin-left: 10px; font-size: 0.8rem; }
         }
         
         @media (max-width: 768px) {
             .hero-banner-container { margin-top: 0; border-radius: 0; padding: 40px 20px; }
             .hero-title { font-size: 1.5rem; }
             .video-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
@@ -132,9 +136,12 @@
                 <a href="index.html">回首頁</a>
                 <a href="basics.html">基礎知識</a>
                 <a href="ebooks.html">電子書</a>
+                <a href="library_books.html">實體館藏</a>
                 <a href="courses.html">自學資源</a>
-                <a href="#" class="active">教學影片</a>
+                <a href="videos.html" class="active">教學影片</a>
                 <a href="tools.html">工具庫</a>
+                <a href="index.html#ethics">學術倫理</a>
+                <a href="https://lib.hsc.edu.tw/" target="_blank"><i class="fa-solid fa-house"></i> 回圖書館首頁</a>
             </div>
         </div>
     </nav>
@@ -181,7 +188,7 @@
                 </div>
                 <div class="video-info">
                     <div class="video-title">Google Gemini 全系列教學 (上集)</div>
-                    <div class="video-desc">介紹 21 個超強 AI 應用，包含簡報製作、APP設計與 NotebookLM 實戰教學。</div>
+                    <div class="video-desc">介紹 21 個超強 AI 應用，包含簡報製作與 NotebookLM 實戰。</div>
                 </div>
             </div>
 
@@ -192,7 +199,7 @@
                 </div>
                 <div class="video-info">
                     <div class="video-title">Gemini 3 最強教程：8大場景實測</div>
-                    <div class="video-desc">深度評測 Gemini 3 的多模態能力，並展示如何應用在實際工作與生活場景。</div>
+                    <div class="video-desc">深度評測 Gemini 3 的多模態能力與實際工作應用。</div>
                 </div>
             </div>
 
@@ -213,7 +220,7 @@
                     <div class="play-button-overlay"><i class="fa-regular fa-circle-play"></i></div>
                 </div>
                 <div class="video-info">
-                    <div class="video-title">【2026最新】地表最強人工智能Google AI炸裂更新！瘋狂商業應用終於來了！</div>
+                    <div class="video-title">【2026最新】地表最強人工智能Google AI炸裂更新！</div>
                     <div class="video-desc">頻道：孔老師AI研習社</div>
                 </div>
             </div>
@@ -235,7 +242,7 @@
                     <div class="play-button-overlay"><i class="fa-regular fa-circle-play"></i></div>
                 </div>
                 <div class="video-info">
-                    <div class="video-title">原來GPT-5還能這樣玩！10個你不知道的隱藏功能（但是應該知道）</div>
+                    <div class="video-title">原來GPT-5還能這樣玩！10個你不知道的隱藏功能</div>
                     <div class="video-desc">頻道：孔老師AI研習社</div>
                 </div>
             </div>
@@ -291,7 +298,7 @@
         <div class="footer-content">
             <p>Copyright © 新生學校財團法人新生醫護管理專科學校</p>
             <p>325桃園市龍潭區中豐路高平段418號</p>
-            <p>TEL: (03)411-7578 轉 250 & 251 | E-Mail: <a href="mailto:lib@hsc.edu.tw">lib@hsc.edu.tw</a></p>
+            <p>TEL: (03)411-7578 轉 250 & 251 | E-Mail: lib@hsc.edu.tw</p>
         </div>
     </footer>
 
