@@ -95,12 +95,11 @@
         }
         .res-card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(0,0,0,0.15); border-top-color: var(--secondary-color); }
         
-        /* --- 修改處：Header 改為垂直排列 --- */
         .res-header { 
             padding: 20px 20px 10px 20px; 
             display: flex; 
-            flex-direction: column; /* 改為垂直堆疊 */
-            align-items: flex-start; /* 靠左對齊 */
+            flex-direction: column; 
+            align-items: flex-start; 
             justify-content: flex-start;
         }
         .res-title-group { 
@@ -108,7 +107,7 @@
             align-items: center; 
             gap: 10px; 
             width: 100%; 
-            margin-bottom: 8px; /* 標題與標籤的間距 */
+            margin-bottom: 8px; 
         }
         .res-logo { 
             width: 36px; height: 36px; 
@@ -141,7 +140,6 @@
         .btn-go { background: var(--primary-color); color: white; padding: 6px 15px; border-radius: 50px; font-weight: bold; font-size: 0.85rem; display: inline-block; }
         .btn-go:hover { background: #004e57; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
         
-        /* --- 修改處：標籤移除左邊距 --- */
         .tag { 
             font-size: 0.75rem; 
             padding: 4px 10px; 
@@ -151,7 +149,7 @@
             white-space: nowrap; 
             line-height: 1.5; 
             display: inline-block;
-            margin-left: 0; /* 因為換行了，不需要左邊距 */
+            margin-left: 0; 
         }
         .tag-hot { background-color: var(--tag-hot); }
         .tag-code { background-color: var(--tag-code); }
@@ -242,7 +240,7 @@
             <div class="nav-links">
                 <a href="basics.html">基礎知識</a> 
                 <a href="ebooks.html">電子書</a>
-                <a href="courses.html">自學資源</a>
+                <a href="library_books.html">實體館藏</a> <a href="courses.html">自學資源</a>
                 <a href="videos.html">教學影片</a>
                 <a href="tools.html">工具庫</a>
                 <a href="#ethics">學術倫理</a>
@@ -263,7 +261,7 @@
                 <ul class="menu-list">
                     <li><a href="basics.html"><i class="fa-solid fa-circle-info"></i> 什麼是 AI?</a></li>
                     <li><a href="ebooks.html"><i class="fa-solid fa-book-bookmark"></i> 電子書推薦</a></li>
-                    <li><a href="courses.html"><i class="fa-solid fa-graduation-cap"></i> 免費課程</a></li>
+                    <li><a href="library_books.html"><i class="fa-solid fa-book"></i> 實體館藏推薦</a></li> <li><a href="courses.html"><i class="fa-solid fa-graduation-cap"></i> 免費課程</a></li>
                     <li><a href="videos.html"><i class="fa-solid fa-video"></i> 精選影片</a></li>
                     <li><a href="tools.html"><i class="fa-solid fa-toolbox"></i> 實用工具</a></li>
                     <li><a href="#ethics"><i class="fa-solid fa-scale-balanced"></i> 引用規範</a></li>
@@ -273,9 +271,8 @@
             <div class="sidebar-box">
                 <h3><i class="fa-solid fa-bullhorn"></i> 最新公告</h3>
                 <ul class="menu-list">
-                    <li><small style="color:#888">2026/01/22</small><br>更新自學平台與工具</li>
+                    <li><small style="color:#888">2026/01/26</small><br>新增 20 本 AI 熱門實體圖書</li> <li><small style="color:#888">2026/01/22</small><br>更新自學平台與工具</li>
                     <li><small style="color:#888">2026/01/22</small><br>更新 2 部 Gemini 教學影片</li>
-                    <li><small style="color:#888">2026/01/07</small><br>新增 10 本 AI 熱門電子書</li>
                     <li><small style="color:#888">2026/01/01</small><br>AI 專區正式上線！</li>
                 </ul>
             </div>
@@ -370,7 +367,7 @@
                             <span class="tag tag-blue">數位部</span>
                         </div>
                         <div class="res-body">
-                            <p>數位發展部推出的 AI 素養課程，適合所有想要了解人工智慧的民眾。</p>
+                            <p>數位發展部推出的 AI 素養課程，適合大眾了解人工智慧。</p>
                         </div>
                         <div class="res-footer">
                             <a href="https://www.youtube.com/playlist?list=PLTLOS370gPgZY7wOboV1E1eF9EIC9rnEa" target="_blank" class="btn-go">開始上課 <i class="fa-solid fa-arrow-right"></i></a>
@@ -421,7 +418,7 @@
                             <div class="play-button-overlay"><i class="fa-regular fa-circle-play"></i></div>
                         </div>
                         <div class="video-title">
-                            <i class="fa-brands fa-youtube" style="color:red;"></i> 一定要學會的 Gemini 十個生活小技巧：旅遊、翻譯、防詐騙
+                            <i class="fa-brands fa-youtube" style="color:red;"></i> 一定要學會的 Gemini 十個生活小技巧
                         </div>
                     </div>
                 </div>
@@ -477,7 +474,7 @@
                             <span class="tag tag-hot">Google最強</span>
                         </div>
                         <div class="res-body">
-                            <p>Google 的多模態 AI。擅長處理長文本分析與即時聯網搜尋。</p>
+                            <p>Google 的多模態 AI。擅長處理長文本分析與搜尋。</p>
                         </div>
                         <div class="res-footer">
                             <a href="https://gemini.google.com/" target="_blank" class="btn-go">前往使用 <i class="fa-solid fa-arrow-right"></i></a>
@@ -493,7 +490,7 @@
                             <span class="tag tag-code">程式推理</span>
                         </div>
                         <div class="res-body">
-                            <p>爆紅的開源模型霸主。程式撰寫與數學邏輯推理表現驚人。</p>
+                            <p>開源模型霸主。程式撰寫與數學邏輯推理表現驚人。</p>
                         </div>
                         <div class="res-footer">
                             <a href="https://chat.deepseek.com/" target="_blank" class="btn-go">前往使用 <i class="fa-solid fa-arrow-right"></i></a>
@@ -516,7 +513,7 @@
                         <h3>使用 AI 的黃金原則</h3>
                         <p>1. <strong>Do Not Copy-Paste Blindly:</strong> 嚴禁未經查核直接複製貼上。</p>
                         <p>2. <strong>Transparency:</strong> 若作業中使用 AI 協助，請務必標註說明。</p>
-                        <p>3. <strong>Privacy:</strong> 勿將個資或未發表的實驗數據輸入到公開的 AI 平台。</p>
+                        <p>3. <strong>Privacy:</strong> 勿將個資或數據輸入到公開的 AI 平台。</p>
                         <hr style="border: 0; border-top: 1px solid #e6dbb9; margin: 10px 0;">
                         <p><strong>APA 7 引用範例：</strong><br>
                         <em>OpenAI. (2023). ChatGPT (Mar 14 version) [Large language model]. https://chat.openai.com/chat</em></p>
