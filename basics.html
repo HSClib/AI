@@ -25,12 +25,15 @@
         .logo-area { display: flex; align-items: center; gap: 15px; font-size: 1.3rem; font-weight: bold; color: var(--primary-color); cursor: pointer; }
         .logo-area:hover { opacity: 0.8; }
         .logo-area img { height: 50px; width: auto; } 
-        .nav-links a { color: var(--text-main); margin-left: 20px; font-weight: 500; }
+        
+        /* 導覽連結樣式優化 */
+        .nav-links { display: flex; align-items: center; }
+        .nav-links a { color: var(--text-main); margin-left: 15px; font-weight: 500; font-size: 0.9rem; }
         .nav-links a:hover, .nav-links a.active { color: var(--primary-color); }
 
         /* --- 頁面標題區 --- */
         .page-header {
-            background: var(--primary-color); /* 標準深綠色背景 */
+            background: var(--primary-color);
             color: white;
             padding: 60px 20px;
             text-align: center;
@@ -38,8 +41,6 @@
             border-radius: 0 0 20px 20px;
         }
         .page-header h1 { margin: 0; font-size: 2.2rem; margin-bottom: 10px;}
-        
-        /* 修改這裡：強制文字為白色且不透明 */
         .page-header p { 
             color: #ffffff; 
             opacity: 1; 
@@ -68,7 +69,7 @@
         h3 { color: #2c3e50; font-size: 1.4rem; margin-top: 30px; margin-bottom: 15px; border-left: 5px solid var(--secondary-color); padding-left: 10px; }
         p { margin-bottom: 15px; font-size: 1.05rem; color: #444; }
 
-        /* --- 概念層次圖 (同心圓概念) --- */
+        /* --- 概念層次圖 --- */
         .concept-box {
             border: 2px solid #ccc;
             border-radius: 20px;
@@ -101,7 +102,6 @@
         .term-title { font-weight: bold; font-size: 1.2rem; color: var(--primary-color); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
         .term-desc { font-size: 0.95rem; color: #555; }
 
-        /* --- 重點強調框 --- */
         .highlight-box {
             background-color: #fff3cd;
             border: 1px solid #ffeeba;
@@ -111,10 +111,10 @@
             margin-top: 20px;
         }
 
-        /* 頁尾樣式 (強制白色) */
+        /* 頁尾樣式 */
         footer { 
             background: #2d3436; 
-            color: #ffffff; /* 整個區塊文字白色 */
+            color: #ffffff; 
             padding: 40px 0; 
             margin-top: 60px; 
             text-align: center; 
@@ -123,27 +123,18 @@
             max-width: 1200px; 
             margin: 0 auto; 
             padding: 0 20px; 
-            text-align: center; 
             line-height: 1.8; 
         }
-        .footer-content p { 
-            margin: 5px 0; 
-            color: #ffffff; /* 段落強制白色 */
-        }
-        .footer-content a { 
-            color: #ffffff; /* 連結強制白色 */
-            text-decoration: none; 
-            border-bottom: 1px dashed #ffffff; 
-        }
-        .footer-content a:hover { 
-            color: var(--secondary-color); /* 滑鼠移過去變淺綠色 */
-            border-bottom-style: solid; 
+        .footer-content p { margin: 5px 0; color: #ffffff; }
+        .footer-content a { color: #ffffff; text-decoration: none; border-bottom: 1px dashed #ffffff; }
+
+        @media (max-width: 992px) {
+            .nav-links a { margin-left: 10px; font-size: 0.8rem; }
         }
 
-        /* RWD */
         @media (max-width: 768px) {
+            .nav-links { display: none; }
             .concept-ml, .concept-dl, .concept-genai { margin: 10px; padding: 10px; }
-            .section-title { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -157,10 +148,14 @@
             </a>
             <div class="nav-links">
                 <a href="index.html">回首頁</a>
-                <a href="#" class="active">基礎知識</a>
-                <a href="courses.html">自學平台</a>
+                <a href="basics.html" class="active">基礎知識</a>
+                <a href="ebooks.html">電子書</a>
+                <a href="library_books.html">實體館藏</a>
+                <a href="courses.html">自學資源</a>
                 <a href="videos.html">教學影片</a>
                 <a href="tools.html">工具庫</a>
+                <a href="index.html#ethics">學術倫理</a>
+                <a href="https://lib.hsc.edu.tw/" target="_blank"><i class="fa-solid fa-house"></i> 回圖書館首頁</a>
             </div>
         </div>
     </nav>
@@ -179,6 +174,8 @@
             </div>
             <p>很多人會混淆 AI 的各種名詞。其實它們是「包含」的關係，就像俄羅斯娃娃一樣：</p>
             
+            
+
             <div class="concept-box concept-ai">
                 <span class="label bg-ai">人工智慧 (AI)</span>
                 <p>最外層的大圈圈。只要是讓機器展現出類似人類智慧的技術（如：下棋、辨識貓狗），都算 AI。</p>
@@ -264,7 +261,7 @@
 
     <footer>
         <div class="footer-content">
-            <p>copyright © 新生學校財團法人新生醫護管理專科學校</p>
+            <p>Copyright © 新生學校財團法人新生醫護管理專科學校</p>
             <p>325桃園市龍潭區中豐路高平段418號</p>
             <p>TEL: (03)411-7578 轉 250 & 251 | E-Mail: <a href="mailto:lib@hsc.edu.tw">lib@hsc.edu.tw</a></p>
         </div>
