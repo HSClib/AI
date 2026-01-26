@@ -24,7 +24,10 @@
         .logo-area { display: flex; align-items: center; gap: 15px; font-size: 1.3rem; font-weight: bold; color: var(--primary-color); cursor: pointer; }
         .logo-area:hover { opacity: 0.8; }
         .logo-area img { height: 50px; width: auto; } 
-        .nav-links a { color: var(--text-main); margin-left: 20px; font-weight: 500; }
+        
+        /* 導覽連結樣式優化 */
+        .nav-links { display: flex; align-items: center; }
+        .nav-links a { color: var(--text-main); margin-left: 15px; font-weight: 500; font-size: 0.9rem; }
         .nav-links a:hover, .nav-links a.active { color: var(--primary-color); }
 
         /* --- 頁面標題區 --- */
@@ -110,6 +113,7 @@
         /* --- RWD 響應式調整 --- */
         @media (max-width: 1024px) {
             .book-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+            .nav-links a { margin-left: 10px; font-size: 0.8rem; }
         }
 
         @media (max-width: 768px) {
@@ -118,6 +122,7 @@
                 gap: 15px; 
             }
             .book-title { font-size: 0.95rem; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
@@ -133,9 +138,12 @@
                 <a href="index.html">回首頁</a>
                 <a href="basics.html">基礎知識</a>
                 <a href="ebooks.html" class="active">電子書</a>
+                <a href="library_books.html">實體館藏</a>
                 <a href="courses.html">自學資源</a>
                 <a href="videos.html">教學影片</a>
                 <a href="tools.html">工具庫</a>
+                <a href="index.html#ethics">學術倫理</a>
+                <a href="https://lib.hsc.edu.tw/" target="_blank"><i class="fa-solid fa-house"></i> 回圖書館首頁</a>
             </div>
         </div>
     </nav>
@@ -231,7 +239,7 @@
                     <img src="book7.jpg" alt="超實用AI技能工具箱" class="book-cover-img">
                 </a>
                 <div class="book-info">
-                    <div class="book-title">超實用AI技能工具箱：提升職場、教育與生活的275個高效應用技巧</div>
+                    <div class="book-title">超實用AI技能工具箱：提升職場、教育與生活的技巧</div>
                     <div class="book-author">作者：吳燦銘</div>
                     <a href="https://reading.udn.com/udnlib/hsc/B/240508" target="_blank" class="btn-read">
                         <i class="fa-solid fa-book-open"></i> 立即閱讀
@@ -257,7 +265,7 @@
                     <img src="book9.jpg" alt="AI霸主" class="book-cover-img">
                 </a>
                 <div class="book-info">
-                    <div class="book-title">AI霸主：OpenAI、DeepMind與科技巨頭顛覆世界的競賽</div>
+                    <div class="book-title">AI霸主：OpenAI、DeepMind與科技巨頭的競賽</div>
                     <div class="book-author">作者：帕米‧奧森</div>
                     <a href="https://reading.udn.com/udnlib/hsc/B/235758" target="_blank" class="btn-read">
                         <i class="fa-solid fa-book-open"></i> 立即閱讀
@@ -270,7 +278,7 @@
                     <img src="book10.jpg" alt="ChatGPT網路行銷" class="book-cover-img">
                 </a>
                 <div class="book-info">
-                    <div class="book-title">ChatGPT網路行銷：利用爆紅AI工具，創造精準又吸睛的網路商機</div>
+                    <div class="book-title">ChatGPT網路行銷：利用爆紅AI工具，創造精準商機</div>
                     <div class="book-author">作者：吳燦銘</div>
                     <a href="https://reading.udn.com/udnlib/hsc/B/239860" target="_blank" class="btn-read">
                         <i class="fa-solid fa-book-open"></i> 立即閱讀
