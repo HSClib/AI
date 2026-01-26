@@ -30,7 +30,10 @@
         .logo-area { display: flex; align-items: center; gap: 15px; font-size: 1.3rem; font-weight: bold; color: var(--primary-color); cursor: pointer; }
         .logo-area:hover { opacity: 0.8; }
         .logo-area img { height: 50px; width: auto; } 
-        .nav-links a { color: var(--text-main); margin-left: 20px; font-weight: 500; }
+        
+        /* 導覽列連結優化 */
+        .nav-links { display: flex; align-items: center; }
+        .nav-links a { color: var(--text-main); margin-left: 15px; font-weight: 500; font-size: 0.9rem; }
         .nav-links a:hover, .nav-links a.active { color: var(--primary-color); }
 
         /* --- 頁面標題區 --- */
@@ -40,9 +43,10 @@
             padding: 40px 20px;
             text-align: center;
             margin-bottom: 40px;
+            border-radius: 0 0 20px 20px;
         }
         .page-header h1 { margin: 0; font-size: 2rem; }
-        .page-header p { opacity: 0.9; margin-top: 10px; }
+        .page-header p { opacity: 1; margin-top: 10px; color: white; }
 
         /* --- 容器 --- */
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px 20px; }
@@ -83,14 +87,17 @@
         .tag-hot { background-color: var(--tag-hot); }
 
         /* 頁尾 */
-        footer { background: #2d3436; color: #dfe6e9; padding: 40px 0; margin-top: 60px; }
-        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; text-align: center; line-height: 1.8; }
-        .footer-content p { margin: 5px 0; }
-        .footer-content a { color: var(--secondary-color); text-decoration: none; border-bottom: 1px dashed var(--secondary-color); }
-        .footer-content a:hover { color: var(--white); border-bottom-style: solid; }
+        footer { background: #2d3436; color: #ffffff; padding: 40px 0; margin-top: 60px; text-align: center; }
+        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; line-height: 1.8; }
+        .footer-content p { margin: 5px 0; color: #ffffff; }
+        .footer-content a { color: #ffffff; text-decoration: none; border-bottom: 1px dashed #ffffff; }
 
+        @media (max-width: 992px) {
+            .nav-links a { margin-left: 10px; font-size: 0.8rem; }
+        }
         @media (max-width: 768px) {
             .course-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
@@ -104,9 +111,14 @@
             </a>
             <div class="nav-links">
                 <a href="index.html">回首頁</a>
-                <a href="#" class="active">自學平台</a>
+                <a href="basics.html">基礎知識</a>
+                <a href="ebooks.html">電子書</a>
+                <a href="library_books.html">實體館藏</a>
+                <a href="courses.html" class="active">自學資源</a>
                 <a href="videos.html">教學影片</a>
                 <a href="tools.html">工具庫</a>
+                <a href="index.html#ethics">學術倫理</a>
+                <a href="https://lib.hsc.edu.tw/" target="_blank"><i class="fa-solid fa-house"></i> 回圖書館首頁</a>
             </div>
         </div>
     </nav>
@@ -132,7 +144,7 @@
                         <span class="tag tag-moe">教育部</span>
                     </div>
                     <div class="card-desc">
-                        教育部官方整合的線上課程平台 (MOOCs)，匯集了全台大學的優質課程。您可以在此搜尋「人工智慧」或「AI」，找到由台大、清大等名校教授開設的免費課程，適合系統性學習。
+                        教育部官方整合的線上課程平台 (MOOCs)，匯集了全台大學的優質課程。您可以在此搜尋「人工智慧」或「AI」，找到由台大、清大等名校教授開設的免費課程。
                     </div>
                 </div>
                 <div class="card-footer">
@@ -147,7 +159,7 @@
                         <span class="tag tag-moe">數發部 x Google</span>
                     </div>
                     <div class="card-desc">
-                        由數位發展部與 Google 台灣合作推出的免費影音課程。內容淺顯易懂，專為非資訊背景的民眾設計，涵蓋生成式 AI 的基礎原理與生活應用，是入門首選。
+                        由數位發展部與 Google 台灣合作推出的免費影音課程。專為非資訊背景民眾設計，涵蓋生成式 AI 基礎與生活應用，是入門首選。
                     </div>
                 </div>
                 <div class="card-footer">
@@ -162,7 +174,7 @@
                         <span class="tag tag-tw">產業權威</span>
                     </div>
                     <div class="card-desc">
-                        國內最具指標性的 AI 人才培育機構。網站提供豐富的線上研討會錄影與科普文章，內容涵蓋技術原理到各行各業的落地應用。
+                        國內具指標性的 AI 人才培育機構。提供豐富的研討會錄影與科普文章，涵蓋技術原理到各行各業的落地應用。
                     </div>
                 </div>
                 <div class="card-footer">
@@ -177,7 +189,7 @@
                         <span class="tag tag-tw">通識課程</span>
                     </div>
                     <div class="card-desc">
-                        台灣最大的 MOOCs 平台之一，與多所大學合作。平台上有許多開設給非資訊背景學生的 AI 通識課，例如「AI 與生活」、「大數據分析」等。
+                        與多所大學合作，提供許多非資訊背景學生的 AI 通識課，例如「AI 與生活」、「大數據分析」等課程。
                     </div>
                 </div>
                 <div class="card-footer">
@@ -201,7 +213,7 @@
                         <span class="tag tag-hot">入門必修</span>
                     </div>
                     <div class="card-desc">
-                        Google 官方提供的生成式 AI 學習路徑。從最基礎的大型語言模型 (LLM) 原理解說起，包含影片與測驗，且貼心提供繁體中文字幕與介面。
+                        Google 官方提供的生成式 AI 學習路徑。從基礎 LLM 原理解說起，且提供繁體中文字幕與介面。
                     </div>
                 </div>
                 <div class="card-footer">
@@ -216,7 +228,7 @@
                         <span class="tag tag-hot">吳恩達大神</span>
                     </div>
                     <div class="card-desc">
-                        由 AI 教父 Andrew Ng 開設的經典通識課。不需任何工程背景也能聽懂，深入淺出講解 AI 對社會、醫療與產業的影響，是全球最受歡迎的 AI 課程之一。
+                        由 AI 教父 Andrew Ng 開設的經典通識課。深入淺出講解 AI 對社會與產業的影響，是全球最受歡迎的課程之一。
                     </div>
                 </div>
                 <div class="card-footer">
@@ -231,7 +243,7 @@
                         <span class="tag tag-global">芬蘭國寶級</span>
                     </div>
                     <div class="card-desc">
-                        由芬蘭赫爾辛基大學開發的全球知名免費課程。課程設計初衷是「讓所有人都能懂 AI」，透過互動式圖文帶你釐清 AI 的核心觀念與倫理議題。
+                        由芬蘭赫爾辛基大學開發。初衷是「讓所有人都能懂 AI」，透過互動式圖文釐清 AI 的核心觀念與倫理。
                     </div>
                 </div>
                 <div class="card-footer">
@@ -246,26 +258,11 @@
                         <span class="tag tag-global">企業認證</span>
                     </div>
                     <div class="card-desc">
-                        IBM 提供的專業數位學習平台。包含針對學生與教育者的 AI 基礎課程，涵蓋自然語言處理到實務應用，完成部分課程還能獲得 IBM 頒發的數位證書。
+                        IBM 提供的專業平台。包含針對學生與教育者的 AI 基礎課程，完成部分課程還能獲得 IBM 數位證書。
                     </div>
                 </div>
                 <div class="card-footer">
                     <a href="https://skillsbuild.org/" target="_blank" class="btn-visit">前往學習 <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </div>
-
-            <div class="course-card">
-                <div class="card-body">
-                    <div class="card-top">
-                        <div class="card-title">LinkedIn Learning</div>
-                        <span class="tag tag-global">微軟合作</span>
-                    </div>
-                    <div class="card-desc">
-                        由微軟與 LinkedIn 合作推出的職涯導向課程。提供大量關於生成式 AI 的實戰影片，且多數配有繁體中文字幕，非常適合想在職場應用 AI 工具的學習者。
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <a href="https://www.linkedin.com/learning/" target="_blank" class="btn-visit">前往學習 <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
 
