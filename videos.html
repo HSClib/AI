@@ -22,106 +22,60 @@
         .top-bar { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; }
         .logo-area { display: flex; align-items: center; gap: 15px; font-size: 1.3rem; font-weight: bold; color: var(--primary-color); cursor: pointer; }
-        .logo-area:hover { opacity: 0.8; }
         .logo-area img { height: 50px; width: auto; } 
 
-        /* 導覽列連結樣式優化 */
         .nav-links { display: flex; align-items: center; }
         .nav-links a { color: var(--text-main); margin-left: 15px; font-weight: 500; font-size: 0.9rem; }
         .nav-links a:hover, .nav-links a.active { color: var(--primary-color); }
 
-        /* --- Hero Banner (CSS 純代碼樣式 - 仿照上傳圖片風格) --- */
+        /* --- Hero Banner --- */
         .hero-banner-container {
             width: 100%;
-            max-width: 1200px; /* 限制最大寬度 */
-            margin: 20px auto 40px auto; /* 上下留白，置中 */
-            background-color: var(--primary-color); /* 深藍綠底色 */
-            color: var(--white); /* 白字 */
-            border-radius: 12px; /* 圓角 */
-            padding: 60px 20px; /* 增加內距讓高度撐開 */
-            text-align: center; /* 內容置中 */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* 陰影 */
-            
-            /* 使用 Flex 讓內容垂直水平完美置中 */
+            max-width: 1200px; 
+            margin: 20px auto 40px auto; 
+            background-color: var(--primary-color); 
+            color: var(--white); 
+            border-radius: 12px; 
+            padding: 60px 20px; 
+            text-align: center; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
+        .hero-title { font-size: 2rem; font-weight: bold; margin-bottom: 10px; display: flex; align-items: center; gap: 15px; }
+        .hero-subtitle { font-size: 1rem; opacity: 0.9; font-weight: normal; }
 
-        .hero-title {
-            font-size: 2rem; /* 大標題字體 */
-            font-weight: bold;
-            margin-bottom: 10px; /* 標題與副標題的距離 */
-            display: flex;
-            align-items: center;
-            gap: 15px; /* 圖示與文字的間距 */
-        }
-
-        .hero-title i {
-            font-size: 1.8rem; /* 圖示大小 */
-        }
-
-        .hero-subtitle {
-            font-size: 1rem;
-            opacity: 0.9; /* 稍微透明一點，增加層次感 */
-            font-weight: normal;
-        }
-
-        /* --- 寬版容器 --- */
+        /* --- 內容容器 --- */
         .gallery-container { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px 20px; }
 
-        /* --- 影片網格系統 --- */
+        /* --- 影片網格 --- */
         .video-grid { 
             display: grid; 
-            /* 電腦版強制一排 4 個 */
             grid-template-columns: repeat(4, 1fr); 
             gap: 25px; 
         }
         
-        .video-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.08); transition: transform 0.2s; }
+        .video-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.08); transition: transform 0.2s; display: flex; flex-direction: column; }
         .video-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
         
-        .video-thumbnail-container { 
-            position: relative; 
-            padding-bottom: 56.25%; 
-            height: 0; 
-            overflow: hidden; 
-            cursor: pointer; 
-            background: #000;
-        }
-        .video-thumbnail-container img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.9; transition: 0.3s; }
-        .video-thumbnail-container:hover img { opacity: 0.7; }
-        
-        .play-button-overlay {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            font-size: 4rem; color: rgba(255,255,255,0.8); z-index: 2; transition: 0.3s;
-        }
-        .video-thumbnail-container:hover .play-button-overlay { color: var(--secondary-color); transform: translate(-50%, -50%) scale(1.1); }
+        .video-thumbnail-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; cursor: pointer; background: #000; }
+        .video-thumbnail-container img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
         .video-thumbnail-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 5; }
+        .play-button-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 3.5rem; color: rgba(255,255,255,0.8); z-index: 2; }
 
-        .video-info { padding: 15px; } 
-        .video-title { font-weight: bold; font-size: 1rem; color: #333; margin-bottom: 8px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;}
-        .video-desc { font-size: 0.85rem; color: #666; }
+        .video-info { padding: 15px; flex-grow: 1; text-align: left; } 
+        .video-title { font-weight: bold; font-size: 0.9rem; color: #333; margin-bottom: 8px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; height: 2.8em; }
+        .video-desc { font-size: 0.8rem; color: #006d77; font-weight: bold; }
 
         /* 頁尾 */
         footer { background: #2d3436; color: #ffffff; padding: 40px 0; margin-top: 60px; text-align: center; }
         .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; line-height: 1.8; }
         .footer-content p { margin: 5px 0; color: #ffffff; }
-        .footer-content a { color: #ffffff; text-decoration: none; border-bottom: 1px dashed #ffffff; }
 
-        /* RWD 響應式調整 */
-        @media (max-width: 1024px) {
-            .video-grid { grid-template-columns: repeat(2, 1fr); }
-            .nav-links a { margin-left: 10px; font-size: 0.8rem; }
-        }
-        
-        @media (max-width: 768px) {
-            .hero-banner-container { margin-top: 0; border-radius: 0; padding: 40px 20px; }
-            .hero-title { font-size: 1.5rem; }
-            .video-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
-        }
+        @media (max-width: 1024px) { .video-grid { grid-template-columns: repeat(2, 1fr); } .nav-links a { margin-left: 10px; font-size: 0.8rem; } }
+        @media (max-width: 768px) { .video-grid { grid-template-columns: 1fr; } .nav-links { display: none; } }
     </style>
 </head>
 <body>
@@ -147,65 +101,60 @@
     </nav>
 
     <div class="hero-banner-container">
-        <div class="hero-title">
-            <i class="fa-solid fa-clapperboard"></i> 精選教學影片
-        </div>
-        <div class="hero-subtitle">
-            嚴選全球最新、最實用的 AI 教學影片與技術解析
-        </div>
+        <div class="hero-title"><i class="fa-solid fa-clapperboard"></i> 精選教學影音庫</div>
+        <div class="hero-subtitle">經由圖書館嚴選，確保資訊準確且適合師生學習的 AI 教學資源</div>
     </div>
 
     <div class="gallery-container">
-        
         <div class="video-grid">
             
             <div class="video-card">
                 <div class="video-thumbnail-container" onclick="loadVideo(this, 'UGdG4WpluJ8')">
-                    <img src="https://img.youtube.com/vi/UGdG4WpluJ8/maxresdefault.jpg" alt="影片封面">
+                    <img src="https://img.youtube.com/vi/UGdG4WpluJ8/maxresdefault.jpg">
                     <div class="play-button-overlay"><i class="fa-regular fa-circle-play"></i></div>
                 </div>
                 <div class="video-info">
-                    <div class="video-title">十三分鐘略懂 AI 技術</div>
-                    <div class="video-desc">快速了解機器學習、深度學習技術原理及延伸應用。</div>
+                    <div class="video-title">十三分鐘略懂 AI 技術：機器學習、深度學習是什麼？</div>
+                    <div class="video-desc">頻道：jasonmel</div>
                 </div>
             </div>
 
             <div class="video-card">
                 <div class="video-thumbnail-container" onclick="loadVideo(this, 'LF9sd-2jCoY')">
-                    <img src="https://img.youtube.com/vi/LF9sd-2jCoY/maxresdefault.jpg" alt="影片封面">
+                    <img src="https://img.youtube.com/vi/LF9sd-2jCoY/maxresdefault.jpg">
                     <div class="play-button-overlay"><i class="fa-regular fa-circle-play"></i></div>
                 </div>
                 <div class="video-info">
-                    <div class="video-title">90分鐘深度！看明白神經網絡</div>
-                    <div class="video-desc">漫士科普深度解析，適合想要深入了解原理的同學。</div>
+                    <div class="video-title">90分鐘深度！一口氣看懂人工智慧和神經網路</div>
+                    <div class="video-desc">頻道：漫士沉思录 Meditation Math</div>
                 </div>
             </div>
 
             <div class="video-card">
                 <div class="video-thumbnail-container" onclick="loadVideo(this, '4n8jswc2pAI')">
-                    <img src="https://img.youtube.com/vi/4n8jswc2pAI/maxresdefault.jpg" alt="影片封面">
+                    <img src="https://img.youtube.com/vi/4n8jswc2pAI/maxresdefault.jpg">
                     <div class="play-button-overlay"><i class="fa-regular fa-circle-play"></i></div>
                 </div>
                 <div class="video-info">
-                    <div class="video-title">Google Gemini 全系列教學 (上集)</div>
-                    <div class="video-desc">介紹 21 個超強 AI 應用，包含簡報製作與 NotebookLM 實戰。</div>
+                    <div class="video-title">Google Gemini 全系列教學 ！這21個超強AI應用</div>
+                    <div class="video-desc">頻道：大有牧森 Austin Chou</div>
                 </div>
             </div>
 
             <div class="video-card">
                 <div class="video-thumbnail-container" onclick="loadVideo(this, 'BOaOCtfy2Yc')">
-                    <img src="https://img.youtube.com/vi/BOaOCtfy2Yc/maxresdefault.jpg" alt="影片封面">
+                    <img src="https://img.youtube.com/vi/BOaOCtfy2Yc/maxresdefault.jpg">
                     <div class="play-button-overlay"><i class="fa-regular fa-circle-play"></i></div>
                 </div>
                 <div class="video-info">
-                    <div class="video-title">Gemini 3 最強教程：8大場景實測</div>
-                    <div class="video-desc">深度評測 Gemini 3 的多模態能力與實際工作應用。</div>
+                    <div class="video-title">Gemini 3最強教程：8大場景實測！</div>
+                    <div class="video-desc">頻道：李廠長来了</div>
                 </div>
             </div>
 
             <div class="video-card">
                 <div class="video-thumbnail-container" onclick="loadVideo(this, 'DVeJGQCycjI')">
-                    <img src="https://img.youtube.com/vi/DVeJGQCycjI/maxresdefault.jpg" alt="影片封面">
+                    <img src="https://img.youtube.com/vi/DVeJGQCycjI/maxresdefault.jpg">
                     <div class="play-button-overlay"><i class="fa-regular fa-circle-play"></i></div>
                 </div>
                 <div class="video-info">
@@ -216,7 +165,7 @@
 
             <div class="video-card">
                 <div class="video-thumbnail-container" onclick="loadVideo(this, 'JmZ7bMdKSjM')">
-                    <img src="https://img.youtube.com/vi/JmZ7bMdKSjM/maxresdefault.jpg" alt="影片封面">
+                    <img src="https://img.youtube.com/vi/JmZ7bMdKSjM/maxresdefault.jpg">
                     <div class="play-button-overlay"><i class="fa-regular fa-circle-play"></i></div>
                 </div>
                 <div class="video-info">
@@ -227,18 +176,18 @@
 
             <div class="video-card">
                 <div class="video-thumbnail-container" onclick="loadVideo(this, 'fVVgHFrjVvM')">
-                    <img src="https://img.youtube.com/vi/fVVgHFrjVvM/maxresdefault.jpg" alt="影片封面">
+                    <img src="https://img.youtube.com/vi/fVVgHFrjVvM/maxresdefault.jpg">
                     <div class="play-button-overlay"><i class="fa-regular fa-circle-play"></i></div>
                 </div>
                 <div class="video-info">
-                    <div class="video-title">2026最值得你花錢的5個AI工具！我痛砸5位數美金買回來的經驗總結</div>
+                    <div class="video-title">2026最值得你花錢的5個AI工具！</div>
                     <div class="video-desc">頻道：小船</div>
                 </div>
             </div>
 
             <div class="video-card">
                 <div class="video-thumbnail-container" onclick="loadVideo(this, 'XoaGjnQrhp4')">
-                    <img src="https://img.youtube.com/vi/XoaGjnQrhp4/maxresdefault.jpg" alt="影片封面">
+                    <img src="https://img.youtube.com/vi/XoaGjnQrhp4/maxresdefault.jpg">
                     <div class="play-button-overlay"><i class="fa-regular fa-circle-play"></i></div>
                 </div>
                 <div class="video-info">
@@ -249,45 +198,89 @@
 
             <div class="video-card">
                 <div class="video-thumbnail-container" onclick="loadVideo(this, 'ciUuRlW6Rek')">
-                    <img src="https://img.youtube.com/vi/ciUuRlW6Rek/maxresdefault.jpg" alt="影片封面">
+                    <img src="https://img.youtube.com/vi/ciUuRlW6Rek/maxresdefault.jpg">
                     <div class="play-button-overlay"><i class="fa-regular fa-circle-play"></i></div>
                 </div>
                 <div class="video-info">
-                    <div class="video-title">你還在手動做簡報嗎？試試這個AI新產品！Notebook LM</div>
+                    <div class="video-title">你還在手動做簡報嗎？試試這個 AI 新產品 NotebookLM</div>
                     <div class="video-desc">頻道：泛科學院</div>
                 </div>
             </div>
 
             <div class="video-card">
                 <div class="video-thumbnail-container" onclick="loadVideo(this, 'dA9iYqrYs30')">
-                    <img src="https://img.youtube.com/vi/dA9iYqrYs30/maxresdefault.jpg" alt="影片封面">
+                    <img src="https://img.youtube.com/vi/dA9iYqrYs30/maxresdefault.jpg">
                     <div class="play-button-overlay"><i class="fa-regular fa-circle-play"></i></div>
                 </div>
                 <div class="video-info">
-                    <div class="video-title">【2026最新】DeepSeek R2 vs ChatGPT 5.1：誰才是最強 AI 程式設計助手？</div>
-                    <div class="video-desc">頻道：孔老師AI研習社</div>
+                    <div class="video-title">Notebook LM最全新手攻略，97%的人都不知道的7個隱藏技巧，15分鐘上手</div>
+                    <div class="video-desc">頻道：七七行銷筆記</div>
                 </div>
             </div>
 
             <div class="video-card">
                 <div class="video-thumbnail-container" onclick="loadVideo(this, 'QtlZJBpVUhQ')">
-                    <img src="https://img.youtube.com/vi/QtlZJBpVUhQ/maxresdefault.jpg" alt="影片封面">
+                    <img src="https://img.youtube.com/vi/QtlZJBpVUhQ/maxresdefault.jpg">
                     <div class="play-button-overlay"><i class="fa-regular fa-circle-play"></i></div>
                 </div>
                 <div class="video-info">
-                    <div class="video-title">【2026最新】OpenAI Sora 終於開放了！文字生成影片的終極指南</div>
-                    <div class="video-desc">頻道：孔老師AI研習社</div>
+                    <div class="video-title">一定要學會的Gemini十個生活小技巧｜規劃旅遊 翻譯 防詐騙</div>
+                    <div class="video-desc">頻道：蘋果妹</div>
                 </div>
             </div>
 
             <div class="video-card">
                 <div class="video-thumbnail-container" onclick="loadVideo(this, 'J0FPGRrvP0c')">
-                    <img src="https://img.youtube.com/vi/J0FPGRrvP0c/maxresdefault.jpg" alt="影片封面">
+                    <img src="https://img.youtube.com/vi/J0FPGRrvP0c/maxresdefault.jpg">
                     <div class="play-button-overlay"><i class="fa-regular fa-circle-play"></i></div>
                 </div>
                 <div class="video-info">
-                    <div class="video-title">AI Agent 智能體是什麼？它將如何改變我們的工作方式？</div>
-                    <div class="video-desc">頻道：泛科學院</div>
+                    <div class="video-title">90% 都用錯 Gemini！開啟 Gems才能讓 AI 變成你的專屬員工</div>
+                    <div class="video-desc">頻道：職能小真</div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-thumbnail-container" onclick="loadVideo(this, '1s3Jt5MpKek')">
+                    <img src="https://img.youtube.com/vi/1s3Jt5MpKek/maxresdefault.jpg">
+                    <div class="play-button-overlay"><i class="fa-regular fa-circle-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <div class="video-title">開完會還要打紀要？AI秒幫你整理</div>
+                    <div class="video-desc">頻道：職能小真</div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-thumbnail-container" onclick="loadVideo(this, '2A6EgtJtjHk')">
+                    <img src="https://img.youtube.com/vi/2A6EgtJtjHk/maxresdefault.jpg">
+                    <div class="play-button-overlay"><i class="fa-regular fa-circle-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <div class="video-title">別再自己排版！用AI打造爆款海報神器</div>
+                    <div class="video-desc">頻道：職能小真</div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-thumbnail-container" onclick="loadVideo(this, 'pbds1YRoXJw')">
+                    <img src="https://img.youtube.com/vi/pbds1YRoXJw/maxresdefault.jpg">
+                    <div class="play-button-overlay"><i class="fa-regular fa-circle-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <div class="video-title">NotebookLM完整教學！10個95%的人還不知道的超強隱藏用法</div>
+                    <div class="video-desc">頻道：孔老師AI研習社</div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-thumbnail-container" onclick="loadVideo(this, 'tdurhvCkfBg')">
+                    <img src="https://img.youtube.com/vi/tdurhvCkfBg/maxresdefault.jpg">
+                    <div class="play-button-overlay"><i class="fa-regular fa-circle-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <div class="video-title">NotebookLM 資訊圖表更新教學：10大風格 x 3大視覺動線全攻略</div>
+                    <div class="video-desc">頻道：T客邦影新聞</div>
                 </div>
             </div>
 
